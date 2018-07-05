@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='Anonymization_Toolbox',
       version="0.0.1",
       description='A Python Module to anonymize',
-      long_description=description,
+      long_description='A Python Module to anonymize',
       url='https://github.com/seralouk/Anonymization_Toolbox',
       author='Serafeim Loukas',
       author_email='seralouk@hotmail.com',
