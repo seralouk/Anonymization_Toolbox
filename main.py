@@ -10,10 +10,13 @@ sys.path.append(functions_path)
 sys.path.append(data_path)
 from core_functions import load_database, anonymize, similar
 
+
 # Define the names of the file and its columns
 database_filename = "Data2.xlsx"
-first_name_column_header = "Prenom"
-last_name_column_header =  "Nom"
+# first_name_column_header = "Prenom"
+# last_name_column_header =  "Nom"
+
+list_of_column_names = ["Prenom","Nom"]
 
 if not os.path.exists(results_path):
     os.makedirs(results_path)
@@ -22,11 +25,11 @@ os.chdir(data_path)
 # Load the dataset
 df = load_database(database_filename)
 # Anonymize the dataset based on similarity between subject's attributes
-data_final, comb = anonymize(df, last_name_column_header, first_name_column_header)
+data_final, comb = anonymize(df, list_of_column_names)
 
 
 # Save 
-data_final[['Anonymization','Nom','Prenom']].to_excel(results_path + "Data_Jul.xlsx", index=False)
+data_final[['Anonymization','Nom','Prenom']].to_excel(results_path + "Data_July.xlsx", index=False)
 
 # Visualize and check the anonymization
 for idx, row in data_final.iterrows():

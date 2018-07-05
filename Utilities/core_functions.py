@@ -13,11 +13,11 @@ def load_database(filename):
 	return df
 
 
-def anonymize(df, column1, column2):
-	if type(column1) and type(column2) == str:
+def anonymize(df, column_names):
+	if all(isinstance(item, str) for item in column_names):
 
-		df[column2] = df[column2].fillna('?')
-		comb = df[column1] + df[column2]
+		df[column_names[0]] = df[column_names[0]].fillna('?')
+		comb = df[column_names[1]] + df[column_names[0]]
 		comb = comb.str.replace(r"\(.*\)","")
 		comb = comb.str.replace(' ',"")
 		comb = comb.str.replace('/',"")
