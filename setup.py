@@ -8,7 +8,7 @@ setup(name='Anonymization_Toolbox',
       author='Serafeim Loukas',
       author_email='seralouk@hotmail.com',
       license='MIT',
-      packages=['Anonymous'],
+      packages=['Utilities'],
       install_requires=[
           'pandas','numpy'  ],
       classifiers=[
