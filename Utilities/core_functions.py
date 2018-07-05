@@ -13,9 +13,9 @@ def load_database(filename):
 	return df
 
 
-def anonymize(df, column_names):
-	if all(isinstance(item, str) for item in column_names):
+def anonymize(df, column_names, threshold):
 
+	if all(isinstance(item, str) for item in column_names):
 		df[column_names[0]] = df[column_names[0]].fillna('?')
 		comb = df[column_names[1]] + df[column_names[0]]
 		comb = comb.str.replace(r"\(.*\)","")
@@ -30,7 +30,7 @@ def anonymize(df, column_names):
 		for idx, row in df.iterrows():
 			if idx <  df.shape[0]-1:
 				sim = similar(comb[idx], comb[idx + 1])
-				if sim > 0.87:
+				if sim > threshold:
 					df['Anonymization'].loc[idx+1] = df['Anonymization'].loc[idx]
 	else:
 		raise ValueError('The column_names must be a string e.g. last_name_column_header =  "Nom")')
