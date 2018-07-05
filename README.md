@@ -3,7 +3,7 @@
 
 - ### This is my personal anonymization toolbox. 
 
-- It created IDs for patients.
+- It creates IDs for patients.
 - It can handle missing data e.g. names 
 - It uses similarity measures.
 
